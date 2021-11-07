@@ -62,7 +62,7 @@ const Header = () => {
                                 <NavDropdown title={<Image className='rounded-circle my-2' src='https://cdn-icons-png.flaticon.com/512/236/236831.png' height='28'/>} id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to="/allBookings">All Bookings</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to="/myBookings">My Bookings</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/successfulOrders">Approved Bookings</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/approvedBookings">Approved Bookings</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
                                 </NavDropdown>
