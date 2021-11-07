@@ -43,8 +43,8 @@ const useFirebase = () => {
         onAuthStateChanged(auth, user => {
            if(user){
             setUser(user);
-            setStatus(false)
            }
+           setStatus(false);
         })
     }, [])
     

@@ -15,7 +15,7 @@ const UpdatePackage = () => {
         data.img = pckg?.img
         data.des = pckg?.des
         console.log(data);
-        axios.put(`http://localhost:4000/packages/update/${updateId}`, data)
+        axios.put(`https://gruesome-village-31529.herokuapp.com/packages/update/${updateId}`, data)
         .then(({ data }) => {
             if(data.modifiedCount){
                 swal("Successfully Added",{
@@ -62,7 +62,7 @@ const UpdatePackage = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/packages/${updateId}`)
+        axios.get(`https://gruesome-village-31529.herokuapp.com/packages/${updateId}`)
         .then(({ data }) => {
             console.log(data);
             setPckg(data);

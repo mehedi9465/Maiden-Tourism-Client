@@ -13,7 +13,7 @@ const UpdateBooking = () => {
     console.log(booking);
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/bookings/update/${bookingId}`)
+        axios.get(`https://gruesome-village-31529.herokuapp.com/bookings/update/${bookingId}`)
         .then(({ data }) =>{
             console.log(data);
             setBooking(data)
@@ -30,7 +30,7 @@ const UpdateBooking = () => {
         data._id = booking._id;
         data.status = "pending";
         if(data.email){
-            axios.put(`http://localhost:4000/bookings/update/${bookingId}`, data)
+            axios.put(`https://gruesome-village-31529.herokuapp.com/bookings/update/${bookingId}`, data)
             .then(({ data }) => {
                 if(data.modifiedCount){
                     swal("Successfully Updated",{

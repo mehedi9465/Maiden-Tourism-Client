@@ -12,7 +12,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         if(user?.email){
-            axios.get(`http://localhost:4000/bookings/${user?.email}`)
+            axios.get(`https://gruesome-village-31529.herokuapp.com/bookings/${user?.email}`)
             .then(({ data }) => {
                 setMyBookings(data);
             })
@@ -20,7 +20,7 @@ const MyBookings = () => {
     }, [user]);
 
       useEffect(() => {
-        axios.get('http://localhost:4000/bookings')
+        axios.get('https://gruesome-village-31529.herokuapp.com/bookings')
         .then(({ data }) => {
             setBookings(data)
         })
@@ -32,7 +32,7 @@ const MyBookings = () => {
             buttons: true,
           }).then(result => {
            if(result){
-            axios.delete(`http://localhost:4000/bookings/${id}`)
+            axios.delete(`https://gruesome-village-31529.herokuapp.com/bookings/${id}`)
             .then(({data}) => {
                 if(data.deletedCount){
                     swal({
@@ -67,5 +67,3 @@ const MyBookings = () => {
 };
 
 export default MyBookings;
-
-// axios.get(`http://localhost:4000/bookings/${user?.email}`)

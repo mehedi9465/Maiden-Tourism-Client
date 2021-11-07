@@ -8,7 +8,7 @@ const PendingBookings = () => {
     const status = "pending";
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:4000/bookings/approve/${status}`)
+        axios.get(`https://gruesome-village-31529.herokuapp.com/bookings/approve/${status}`)
         .then(({ data }) => {
             console.log(data);
             setBookings(data)
@@ -21,7 +21,7 @@ const PendingBookings = () => {
             buttons: true,
           }).then(result => {
            if(result){
-            axios.delete(`http://localhost:4000/bookings/${id}`)
+            axios.delete(`https://gruesome-village-31529.herokuapp.com/bookings/${id}`)
             .then(({data}) => {
                 if(data.deletedCount){
                     swal({
@@ -46,7 +46,7 @@ const PendingBookings = () => {
         const data = matched[0];
         data.status = "approved"
         console.log(data);
-        axios.put(`http://localhost:4000/bookings/update/${id}`, data)
+        axios.put(`https://gruesome-village-31529.herokuapp.com/bookings/update/${id}`, data)
         .then(({ data }) => {
             if(data.modifiedCount){
                 swal("Successfully Updated",{

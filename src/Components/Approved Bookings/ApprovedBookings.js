@@ -2,14 +2,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
+import useAuth from '../../Custom Hooks/useAuth';
 import BookingCard from '../Booking Card/BookingCard';
 
 const ApprovedBookings = () => {
+    const { user } = useAuth();
     const status = "approved";
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/bookings/approve/${status}`)
+        axios.get(`https://gruesome-village-31529.herokuapp.com/bookings/approve/${status}?email=${user.email}`)
         .then(({ data }) => {
             console.log(data);
             setBookings(data)
@@ -22,7 +24,7 @@ const ApprovedBookings = () => {
             buttons: true,
           }).then(result => {
            if(result){
-            axios.delete(`http://localhost:4000/bookings/${id}`)
+            axios.delete(`https://gruesome-village-31529.herokuapp.com/bookings/${id}`)
             .then(({data}) => {
                 if(data.deletedCount){
                     swal({
@@ -45,7 +47,7 @@ const ApprovedBookings = () => {
     return (
         <div>
             <h1>Approved Bookings</h1>
-            <Container>
+            <Container className='py-5'>
             <Row xl={4} lg={4} md={3} sm={2} xs={1}>
                 {
                     bookings.map(booking => <BookingCard 

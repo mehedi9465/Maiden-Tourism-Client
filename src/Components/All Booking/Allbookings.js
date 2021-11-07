@@ -7,7 +7,7 @@ const Allbookings = () => {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/bookings')
+        axios.get('https://gruesome-village-31529.herokuapp.com/bookings')
         .then(({ data }) => {
             console.log(data);
             setBookings(data)

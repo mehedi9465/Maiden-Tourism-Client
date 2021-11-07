@@ -9,7 +9,7 @@ const ManagePackages = () => {
     const [packages, setPackages] = useState([]);
     const history = useHistory()
     useEffect(() => {
-        axios.get(`http://localhost:4000/packages`)
+        axios.get(`https://gruesome-village-31529.herokuapp.com/packages`)
         .then(({ data }) => {
             console.log(data);
             setPackages(data)
@@ -22,7 +22,7 @@ const ManagePackages = () => {
             buttons: true,
           }).then(result => {
            if(result){
-            axios.delete(`http://localhost:4000/packages/${id}`)
+            axios.delete(`https://gruesome-village-31529.herokuapp.com/packages/${id}`)
             .then(({data}) => {
                 if(data.deletedCount){
                     swal({
@@ -41,27 +41,6 @@ const ManagePackages = () => {
            }
           })
     }
-
-    // const handleApprove = id =>{
-    //     const matched = packages.filter(pckg => pckg._id === id);
-    //     const data = matched[0];
-    //     console.log(data);
-    //     axios.put(`http://localhost:4000/packages/update/${id}`, data)
-    //     .then(({ data }) => {
-    //         if(data.modifiedCount){
-    //             swal("Successfully Updated",{
-    //                 icon: "success",
-    //               });
-    //         }
-    //         else{
-    //             swal("Something Went Wrong",{
-    //                 icon: "error",
-    //               });
-    //         }
-    //         const rest = packages.filter(pckg => pckg.status === "pending");
-    //         setPackages(rest);
-    //     })
-    // }
 
     const hanldeUpdate = id => {
         history.push(`/managePackages/update/${id}`);

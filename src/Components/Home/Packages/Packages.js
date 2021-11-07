@@ -7,7 +7,7 @@ const Packages = () => {
     const [packages, setPackages] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/packages')
+        axios.get('https://gruesome-village-31529.herokuapp.com/packages')
         .then(({ data }) => setPackages(data))
     }, []);
 

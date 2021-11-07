@@ -20,7 +20,7 @@ const PackageDetails = () => {
         data.status = "pending";
         data.img = pckg?.img;
         if(data.email){
-            fetch('http://localhost:4000/bookings', {
+            fetch('https://gruesome-village-31529.herokuapp.com/bookings', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -46,7 +46,7 @@ const PackageDetails = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/packages/${packageId}`)
+        axios.get(`https://gruesome-village-31529.herokuapp.com/packages/${packageId}`)
         .then(({ data }) => setpckg(data))
     }, []);
 

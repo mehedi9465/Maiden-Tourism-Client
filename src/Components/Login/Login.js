@@ -11,9 +11,6 @@ const Login = () => {
     const history = useHistory();
     const [status, setStatus] = useState(false);
     let redirect = '';
-    if(user.email?.toLowerCase().includes('admin') || ''){
-        redirect = '';
-    }
     redirect = location.state?.from || '';
 
     const onSubmit = data => {

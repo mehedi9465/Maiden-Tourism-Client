@@ -9,7 +9,7 @@ const AddNewPackage = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:4000/packages', data)
+        axios.post('https://gruesome-village-31529.herokuapp.com/packages', data)
         .then(({ data }) => {
             if(data.insertedId){
                 swal("Successfully Added",{
